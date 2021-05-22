@@ -39,7 +39,11 @@ public class BraService {
         return repository.findById(id).orElseThrow();
     }
 
-//    public void deleteBra(Integer id){
-//        braMap.remove(id);
-//    }
+    public boolean deleteBra(Integer id){
+        if(repository.findById(id).isPresent()) {
+            repository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }

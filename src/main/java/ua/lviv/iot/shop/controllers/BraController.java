@@ -65,13 +65,11 @@ public class BraController {
         }
     }
 
-//    @DeleteMapping(path = "/{id}")
-//    public ResponseEntity<String> deleteBra(@PathVariable Integer id){
-//        Bra deleteTarget = braService.getBraMap().get(id);
-//        if (deleteTarget != null){
-//            braService.deleteBra(id);
-//            return ResponseEntity.ok("Successfully deleted");
-//        }
-//        return ResponseEntity.notFound().build();
-//    }
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<String> deleteBra(@PathVariable Integer id){
+        if (braService.deleteBra(id)){
+            return ResponseEntity.ok("Successfully deleted");
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
